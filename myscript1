@@ -1,0 +1,7 @@
+#!/bin/bash
+ns=1
+while read line
+do
+echo "$ns,$line" | sed 's/,/ /g' | awk '$3 ~ /.gif/{print $1, $3}'
+ns=$(( $ns + 1 ))
+done < MOCK_DATA.csv > file
